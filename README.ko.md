@@ -62,3 +62,10 @@ python -m http.server 3000 --directory web
 npx -y serve web -p 3000
 ```
 실행 후 브라우저에서 `http://localhost:3000` 접속.
+
+---
+
+## 👨‍💻 제작자 (Creator)
+
+**정성운 (Jung SungWoon)** • GitHub: [@DrHomeRender](https://github.com/DrHomeRender)
+

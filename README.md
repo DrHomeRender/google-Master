@@ -163,10 +163,16 @@ Contributions from the global open-source community are welcome!
 
 ---
 
+## 👨‍💻 Creator & Author
+
+Architected and built with ❤️ by **Jung SungWoon (정성운)** ([@DrHomeRender](https://github.com/DrHomeRender)).
+
+---
+
 ## 📄 License
 
 Distributed under the **MIT License**. See [LICENSE](./LICENSE) for more information.
 
 <div align="center">
-Made with ❤️ for the global AI developer community.
+Made with ❤️ by <strong>Jung SungWoon</strong> for the global AI developer community.
 </div>
