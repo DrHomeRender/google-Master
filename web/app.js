@@ -176,8 +176,8 @@ const GOOGLE_TOOLS = [
     category: 'infra',
     categoryName_en: 'Dev Infra & Agents',
     categoryName_ko: '개발 인프라 & 에이전트',
-    desc_en: 'Fast prototyping console for Gemini 1.5/2.5 Pro and Flash with system prompt tuning and instant API code extraction.',
-    desc_ko: '최신 Gemini 1.5/2.5 모델을 신속하게 테스트하고, System Instruction을 조정하며 프로덕션 API 키와 코드를 추출하는 개발자 콘솔.',
+    desc_en: 'Fast prototyping console for Gemini 3 Pro, Gemini 3 Flash, and Gemini 2.5 with system prompt tuning and instant API code extraction.',
+    desc_ko: '최신 Gemini 3 및 2.5 모델(Pro/Flash)을 신속하게 테스트하고, System Instruction을 조정하며 프로덕션 API 키와 코드를 추출하는 개발자 콘솔.',
     tip_en: 'Pair with google-model-hub skill to inject system instructions and structured JSON Schema responses into your codebase.',
     tip_ko: 'google-model-hub 스킬로 AI Studio의 시스템 인스트럭션과 구조화된 JSON Schema 응답 코드를 앱에 직결합니다.',
     skill: 'google-model-hub',
@@ -191,8 +191,8 @@ const GOOGLE_TOOLS = [
     category: 'infra',
     categoryName_en: 'Dev Infra & Agents',
     categoryName_ko: '개발 인프라 & 에이전트',
-    desc_en: 'Enterprise MLOps platform for fine-tuning Gemini models on proprietary data and deploying production endpoints.',
-    desc_ko: '엔터프라이즈 환경에서 Gemini 모델을 전용 데이터로 파인튜닝하고, 대규모 MLOps 인프라에 배포·모니터링하는 플랫폼.',
+    desc_en: 'Enterprise MLOps platform for fine-tuning Gemini 3 & 2.5 models on proprietary data and deploying production endpoints.',
+    desc_ko: '엔터프라이즈 환경에서 Gemini 3 및 2.5 모델을 전용 데이터로 파인튜닝하고, 대규모 SLA가 보장된 MLOps 인프라에 배포·모니터링하는 플랫폼.',
     tip_en: 'Essential when scaling to high-traffic commercial environments with strict enterprise security and SLAs.',
     tip_ko: '상용화 및 대규모 사용자 트래픽 대응 시 보안 규정 준수와 엔터프라이즈 파이프라인 배포를 위해 사용합니다.',
     skill: 'google-model-hub',
@@ -202,18 +202,18 @@ const GOOGLE_TOOLS = [
   },
   {
     id: 'gemma',
-    name: 'Gemma (2B / 9B / 27B)',
+    name: 'Gemma (Gemma 2 / Gemma 3 - 2B / 9B / 27B)',
     category: 'infra',
     categoryName_en: 'Dev Infra & Agents',
     categoryName_ko: '개발 인프라 & 에이전트',
-    desc_en: 'High-performance open-weight models from Google optimized for zero-cost, private on-device local execution.',
-    desc_ko: '로컬 PC나 엣지 디바이스 등 독립된 오프라인 환경에서 비용 없이 구동할 수 있도록 설계된 구글의 고성능 오픈 가중치 모델.',
+    desc_en: 'High-performance open-weight models from Google optimized for zero-cost, private on-device local execution (Gemma 2 & 3 family).',
+    desc_ko: '로컬 PC나 엣지 디바이스 등 독립된 오프라인 환경에서 비용 없이 구동할 수 있도록 설계된 구글의 고성능 오픈 가중치 모델 (Gemma 2 및 3 제품군).',
     tip_en: 'Use google-model-hub skill to scaffold local Ollama / vLLM serving scripts for completely private edge AI.',
     tip_ko: 'google-model-hub 스킬로 Ollama, vLLM 로컬 서빙 스크립트를 생성하여 완벽한 프라이버시 온디바이스 AI를 구축합니다.',
     skill: 'google-model-hub',
     link: 'https://ai.google.dev/gemma',
-    prompt_en: `ollama run gemma2:9b\n# Local serving endpoint for {INTENT}: http://localhost:11434/api/generate`,
-    prompt_ko: `ollama run gemma2:9b\n# {INTENT} 로컬 서빙 엔드포인트: http://localhost:11434/api/generate`
+    prompt_en: `ollama run gemma2:9b\n# (or gemma3) Local serving endpoint for {INTENT}: http://localhost:11434/api/generate`,
+    prompt_ko: `ollama run gemma2:9b\n# (또는 gemma3) {INTENT} 로컬 서빙 엔드포인트: http://localhost:11434/api/generate`
   },
 
   // Workspace
@@ -490,7 +490,7 @@ function analyzeModelRouting(intent) {
 
   if (isEdgeRequired) {
     return {
-      modelName: 'Gemma 9B (Local Ollama / vLLM)',
+      modelName: 'Gemma 2 / 3 (Local Ollama / vLLM)',
       rationale_en: 'Architecture Rationale: Selected for zero-cost offline latency, edge independence, and strict local privacy.',
       rationale_ko: '선정 근거: 클라우드 비용 제로, 오프라인 구동 및 완벽한 로컬 데이터 프라이버시를 보장합니다.',
       toolRef: 'gemma',
@@ -498,7 +498,7 @@ function analyzeModelRouting(intent) {
     };
   } else if (isEnterpriseDeploy) {
     return {
-      modelName: 'Vertex AI (Gemini Enterprise)',
+      modelName: 'Vertex AI (Gemini 3 Enterprise)',
       rationale_en: 'Architecture Rationale: Selected for enterprise SLA compliance, model fine-tuning, and scalable production monitoring.',
       rationale_ko: '선정 근거: 엔터프라이즈 SLA 준수, 맞춤형 모델 파인튜닝 및 대규모 트래픽 모니터링을 제공합니다.',
       toolRef: 'vertex-ai',
@@ -506,9 +506,9 @@ function analyzeModelRouting(intent) {
     };
   } else {
     return {
-      modelName: 'Google AI Studio (Gemini 2.5 Flash)',
-      rationale_en: 'Architecture Rationale: Selected for ultra-low latency, 1M multimodal context window, and rapid API prototyping.',
-      rationale_ko: '선정 근거: 초저지연 응답 속도, 100만 토큰 멀티모달 컨텍스트 및 신속한 API 프로토타이핑을 제공합니다.',
+      modelName: 'Google AI Studio (Gemini 3 Flash / 2.5)',
+      rationale_en: 'Architecture Rationale: Selected for ultra-low latency, 1M+ multimodal context window, and rapid API prototyping.',
+      rationale_ko: '선정 근거: 초저지연 응답 속도, 100만+ 토큰 멀티모달 컨텍스트 및 신속한 API 프로토타이핑을 제공합니다.',
       toolRef: 'ai-studio',
       skill: 'google-model-hub'
     };

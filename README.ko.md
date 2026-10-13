@@ -2,7 +2,21 @@
 
 [🌐 라이브 웹 허브 체험하기](https://drhomerender.github.io/google-Master/) | [English Documentation](./README.md)
 
-**Google Master**는 구글의 최신 AI 도구 생태계([구글 앱 정리.md](./구글%20앱%20정리.md))를 Antigravity 에이전트와 유기적으로 결합하여, 사용자가 개발 아이디어를 제시할 때 단계별 최적 도구와 스킬을 자동으로 추천하고 실행하도록 돕는 **AI 오케스트레이션 개발 지원 시스템**입니다.
+**Google Master**는 구글의 핵심 AI 도구 16종([구글 앱 정리.md](./구글%20앱%20정리.md))을 Antigravity 에이전트와 유기적으로 결합하여, 리서치부터 배포까지의 개발 흐름을 5단계로 체계화한 **구글 AI 생태계 오케스트레이션 개발 도구**입니다.
+
+---
+
+## 🎯 생태계 포지셔닝 및 핵심 차별점
+
+현재 구글 AI 생태계에는 유용한 개별 도구 간 연동 사례가 다수 존재합니다:
+* Google 공식 Codelab: Google Stitch와 Antigravity의 MCP 기반 디자인-코드 연동
+* 커뮤니티 프로젝트: `notebooklm-mcp-cli`, Google Labs `stitch-skills`, 에이전트 스킬 컬렉션 등
+
+**Google Master의 차별점은 전(全) 개발 주기를 포괄하는 5단계 통합 오케스트레이션입니다:**
+단순히 2개 도구를 1:1로 잇는 것을 넘어, **16종의 구글 AI 도구를 하나의 체계적인 5단계 라이프사이클(리서치 ➔ UI ➔ 엔지니어링 ➔ 모델 연동 ➔ 쇼케이스)**로 엮어냅니다:
+* **다요소 인텐트 라우팅 (Multi-Factor Intent Routing)**: 보안/비용/지연시간 요구사항에 맞춰 최적 모델(Gemini 3 Pro/Flash, Gemma 2/3 로컬, Vertex AI 엔터프라이즈)을 자동 분기.
+* **1-클릭 프롬프트 포지 (Prompt Forge)**: 각 도구별 최적화된 프롬프트 템플릿 즉시 합성.
+* **단계별 산출물 계약 및 품질 게이트 (Artifact Contracts)**: 단순 텍스트 생성이 아닌 실제 검증 가능한 파일 산출물(`docs/`, `ui/`, `src/`, `config/`, `assets/`)을 확인 후 다음 단계로 이행.
 
 ---
 

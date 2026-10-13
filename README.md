@@ -8,9 +8,9 @@
 [![Google AI Ecosystem](https://img.shields.io/badge/Google%20AI-Gemini%20%7C%20Gemma%20%7C%20Stitch-9333ea.svg)](https://ai.google.dev)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/DrHomeRender/google-Master/pulls)
 
-**The Autonomous Google AI Ecosystem Orchestrator & Antigravity Copilot**
+**A 5-Phase Development Orchestrator & Antigravity Copilot for 16 Google AI Tools**
 
-*Orchestrating 15+ cutting-edge Google AI tools into a seamless, agent-driven engineering pipeline.*
+*Orchestrating 16 cutting-edge Google AI tools into a structured, agent-driven engineering pipeline.*
 
 [🌐 Live Demo Hub](https://drhomerender.github.io/google-Master/) | [English](./README.md) | [한국어 문서](./README.ko.md)
 
@@ -20,7 +20,7 @@
 
 ## 🌟 Why Google Master?
 
-Google provides an unrivaled array of state-of-the-art AI instruments—from **Stitch** for prompt-to-UI generation, **NotebookLM** for hallucination-free research RAG, **AI Studio & Vertex AI** for Gemini models, **Gemma** for private on-device edge computing, to **Veo & Vids** for automated release showcases.
+Google provides an unrivaled array of state-of-the-art AI instruments—from **Stitch** for prompt-to-UI generation, **NotebookLM** for hallucination-free research RAG, **AI Studio & Vertex AI** for Gemini 3 & 2.5 models, **Gemma** for private on-device edge computing, to **Veo & Vids** for automated release showcases.
 
 However, developers frequently struggle with:
 1. Knowing *which* Google tool is ideal for their current development stage.
@@ -28,6 +28,21 @@ However, developers frequently struggle with:
 3. Lack of agentic automation connecting Google tools directly into their IDE.
 
 **Google Master** solves this by pairing **Google Antigravity's autonomous agent engine** with a structured **5-Phase AI Pipeline** and an interactive **Visual Command Center**.
+
+---
+
+## 🎯 Positioning & Ecosystem Context
+
+In the Google developer community, several pairwise tool integrations already exist:
+* Google Codelab guides design-to-code workflows bridging **Stitch** and **Antigravity** via MCP.
+* Community tools like `notebooklm-mcp-cli` and `stitch-skills` provide specific CLI and skill bridges.
+* Specialized skills delegate tasks to individual tools like Jules or Gemini Deep Research.
+
+**Google Master's unique differentiation is full-lifecycle orchestration:**
+Rather than connecting just two tools in isolation, Google Master unites **all 16 Google AI tools** into a coherent, end-to-end 5-phase engineering lifecycle (Research ➔ UI ➔ Engineering ➔ Model Engine ➔ Showcase), complete with:
+* **Multi-Factor Intent Routing**: Automatically recommending the optimal model (Gemini 3 Cloud vs Gemma On-Device vs Vertex AI Enterprise) based on privacy, latency, and scale constraints.
+* **1-Click Prompt Forging**: Generating tailored, pre-formatted prompt suites for each phase.
+* **Deterministic Artifact Contracts**: Enforcing verifiable file deliverables (`docs/`, `ui/`, `src/`, `config/`, `assets/`) before moving between phases.
 
 ---
 
@@ -40,7 +55,7 @@ flowchart LR
     B --> P1["1. 🧠 Deep Research\n(NotebookLM / Deep Research)"]
     B --> P2["2. 🎨 UI & Layout\n(Google Stitch / Code Canvas)"]
     B --> P3["3. ⚙️ Agentic Coding\n(Antigravity / Jules / IDX)"]
-    B --> P4["4. 🔮 Intelligence Engine\n(Gemini 2.5 / Gemma 9B)"]
+    B --> P4["4. 🔮 Intelligence Engine\n(Gemini 3 / Gemma 2 & 3)"]
     B --> P5["5. 🎬 Media & Showcase\n(Google Vids / Veo / ImageFX)"]
 ```
 
