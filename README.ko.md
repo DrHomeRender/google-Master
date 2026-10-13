@@ -16,7 +16,7 @@
 단순히 2개 도구를 1:1로 잇는 것을 넘어, **16종의 구글 AI 도구를 하나의 체계적인 5단계 라이프사이클(리서치 ➔ UI ➔ 엔지니어링 ➔ 모델 연동 ➔ 쇼케이스)**로 엮어냅니다:
 * **다요소 인텐트 라우팅 (Multi-Factor Intent Routing)**: 보안/비용/지연시간 요구사항에 맞춰 최적 모델(Gemini 3 Pro/Flash, Gemma 2/3 로컬, Vertex AI 엔터프라이즈)을 자동 분기.
 * **1-클릭 프롬프트 포지 (Prompt Forge)**: 각 도구별 최적화된 프롬프트 템플릿 즉시 합성.
-* **단계별 산출물 계약 및 품질 게이트 (Artifact Contracts)**: 단순 텍스트 생성이 아닌 실제 검증 가능한 파일 산출물(`docs/`, `ui/`, `src/`, `config/`, `assets/`)을 확인 후 다음 단계로 이행.
+* **명시적 산출물 계약 및 검증 게이트 (Verifiable Artifact Contracts)**: 단순 텍스트 생성이 아닌 실제 검증 가능한 파일 산출물(`docs/`, `ui/`, `src/`, `config/`, `assets/`)을 확인 후 다음 단계로 이행.
 
 ---
 
@@ -29,7 +29,7 @@ Google master/
 ├── README.ko.md               # 한국어 가이드 문서
 ├── web/                       # Google Master 비주얼 대시보드 (Web Hub)
 │   ├── index.html             # 메인 허브 마크업
-│   ├── style.css              # 다크/글래스모피즘 모던 디자인 시스템
+│   ├── style.css              # 웜 데이라이트 디자인 시스템 (다크 모드 전환 지원)
 │   └── app.js                 # 인텐트 파이프라인 생성 및 프롬프트 조립 엔진
 └── .agents/                   # Antigravity 전용 커스터마이징 계층
     ├── rules/

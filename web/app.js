@@ -202,7 +202,7 @@ const GOOGLE_TOOLS = [
   },
   {
     id: 'gemma',
-    name: 'Gemma (Gemma 2 / Gemma 3 - 2B / 9B / 27B)',
+    name: 'Gemma (Gemma 2 & 3: 1B ~ 27B)',
     category: 'infra',
     categoryName_en: 'Dev Infra & Agents',
     categoryName_ko: '개발 인프라 & 에이전트',

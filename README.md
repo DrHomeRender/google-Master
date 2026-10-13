@@ -42,7 +42,7 @@ In the Google developer community, several pairwise tool integrations already ex
 Rather than connecting just two tools in isolation, Google Master unites **all 16 Google AI tools** into a coherent, end-to-end 5-phase engineering lifecycle (Research ➔ UI ➔ Engineering ➔ Model Engine ➔ Showcase), complete with:
 * **Multi-Factor Intent Routing**: Automatically recommending the optimal model (Gemini 3 Cloud vs Gemma On-Device vs Vertex AI Enterprise) based on privacy, latency, and scale constraints.
 * **1-Click Prompt Forging**: Generating tailored, pre-formatted prompt suites for each phase.
-* **Deterministic Artifact Contracts**: Enforcing verifiable file deliverables (`docs/`, `ui/`, `src/`, `config/`, `assets/`) before moving between phases.
+* **Verifiable Artifact Contracts**: Enforcing structured, reviewable file deliverables (`docs/`, `ui/`, `src/`, `config/`, `assets/`) before moving between phases.
 
 ---
 
@@ -74,7 +74,7 @@ Drop Google Master into any workspace, and Antigravity automatically gains:
 
 ### 2. 🖥️ Interactive Web Command Center (`web/`)
 A modern, warm daylight web dashboard (with optional dark mode) inspired by Google DeepMind:
-* **Pre-rendered Static HTML**: 100% crawlable by search engines and link preview bots with zero JS dependency for first paint.
+* **Pre-rendered Static HTML Fallback**: Core catalog and 5-phase pipeline pre-rendered in semantic HTML for search engine indexing and social link previews, progressively enhanced with client-side JavaScript.
 * **Intent-to-Pipeline Router**: Type any application concept, and receive an automated 5-step roadmap with multi-factor architectural rationale.
 * **Safe Prompt Forge**: 1-click tailored prompts formatted specifically for Google Stitch, NotebookLM, AI Studio, and Veo with DOM-safe execution (XSS-protected).
 * **Tool Catalog**: Filterable directory of all 16 Google AI tools with Antigravity pairing tips and deep-links.
@@ -110,7 +110,7 @@ Each development phase enforces explicit input/output file contracts before adva
 | **Dev Infra & Models** | **Antigravity & Jules** | Autonomous agent refactoring & coding | Central command hub for codebase execution |
 | | **Google AI Studio** | Fast Gemini prototyping & API extraction | System instruction injection & JSON schema code generation |
 | | **Vertex AI** | Enterprise MLOps & model fine-tuning | Production enterprise deployment |
-| | **Gemma (2B/9B/27B)** | High-performance open-weight local models | Free, private on-device local serving (Ollama/Transformers) |
+| | **Gemma (Gemma 2 & 3)** | High-performance open-weight models (1B–27B) | Free, private on-device local serving (Ollama/vLLM) |
 | **Workspace & Office** | **Gemini Advanced** | 1M–2M token context analysis | Rapid ingestion of massive specification documents |
 | | **Workspace Gemini** | AI sidepanel in Docs, Sheets, Gmail | Sheet formula automation & client documentation export |
 | **Research & RAG** | **NotebookLM** | Document-grounded RAG & audio podcasts | Clean markdown specification grounding & zero-hallucination Q&A |
@@ -176,7 +176,7 @@ google-Master/
 │           └── SKILL.md
 ├── web/                                 # Interactive Web Command Center
 │   ├── index.html                       # Modern dashboard markup
-│   ├── style.css                        # Glassmorphic DeepMind-inspired styling
+│   ├── style.css                        # Warm Daylight design system with Dark Mode toggle
 │   └── app.js                           # Intent engine & Prompt Forge logic
 ├── 구글 앱 정리.md                      # Original Korean Google AI Tools Directory
 ├── README.md                            # Official Global English Documentation
