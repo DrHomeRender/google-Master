@@ -4,14 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google Master | Antigravity AI Ecosystem Orchestrator</title>
-  <meta name="description" content="Google Master - The Autonomous Google AI Ecosystem Orchestrator & Antigravity Copilot">
+  <meta name="description" content="Google Master - Orchestrate 15+ cutting-edge Google AI tools (Stitch, NotebookLM, Gemma, AI Studio, Veo) into an autonomous 5-phase engineering pipeline with Antigravity. Created by Jung SungWoon.">
+  <meta name="author" content="Jung SungWoon (정성운)">
+
+  <!-- Open Graph / Facebook / LinkedIn / Discord -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://drhomerender.github.io/google-Master/">
+  <meta property="og:title" content="Google Master | Autonomous Google AI Ecosystem Orchestrator">
+  <meta property="og:description" content="Turn any application idea into a structured 5-phase Google AI developer roadmap with 1-click tailored prompts for Stitch, NotebookLM, Gemma, AI Studio, and Veo.">
+  <meta property="og:site_name" content="Google Master">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Google Master | Google AI × Antigravity Orchestrator">
+  <meta name="twitter:description" content="The autonomous AI developer pipeline orchestrating 15+ Google AI tools into a single workflow.">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Google Master",
+    "operatingSystem": "All",
+    "applicationCategory": "DeveloperApplication",
+    "description": "Autonomous Google AI Ecosystem Orchestrator & Antigravity Copilot bridging 15+ Google AI tools into an agentic engineering pipeline.",
+    "author": {
+      "@type": "Person",
+      "name": "Jung SungWoon (정성운)",
+      "url": "https://github.com/DrHomeRender"
+    },
+    "url": "https://drhomerender.github.io/google-Master/"
+  }
+  </script>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=2.0">
+  <link rel="stylesheet" href="style.css?v=2.1">
 </head>
 <body>
 
@@ -27,7 +58,7 @@
     <div class="container" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
       <div class="brand">
         <div class="brand-icon">
-          <svg viewBox="0 0 24 24">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
           </svg>
         </div>
@@ -99,9 +130,12 @@
         <span class="synth-badge" id="i18nSynthBadge">Autonomous Skill Orchestration</span>
       </div>
 
-      <!-- Presets -->
+      <!-- Presets (Static HTML Fallback) -->
       <div class="presets-container" id="presetsContainer">
-        <!-- Rendered by app.js -->
+        <button class="preset-chip active">📱 On-device AI Doc Summarizer & Podcast</button>
+        <button class="preset-chip">🎨 Realtime Canvas & Modern SaaS Dashboard</button>
+        <button class="preset-chip">📊 Google Sheets & BigData Automation Agent</button>
+        <button class="preset-chip">🎬 Cinematic AI Video Release Showcase</button>
       </div>
 
       <!-- Input Bar -->
@@ -110,6 +144,7 @@
           type="text" 
           id="intentInput" 
           class="intent-input" 
+          value="Private on-device document summarizer & audio podcast generator webapp running Gemma 9B locally with zero cloud API cost"
           placeholder="What app or service do you want to build? (e.g. On-device AI doc summarizer webapp)"
           aria-label="Development intent input"
         >
@@ -118,9 +153,117 @@
         </button>
       </div>
 
-      <!-- Pipeline Visual Flow -->
+      <!-- Pipeline Visual Flow (Static HTML Pre-rendered) -->
       <div class="pipeline-flow" id="pipelineFlow">
-        <!-- Rendered by app.js -->
+        <!-- Step 1 -->
+        <article class="pipeline-step-card">
+          <div class="step-card-header">
+            <div class="step-title-group">
+              <div class="step-num">1</div>
+              <h3 class="step-name">Knowledge & Deep Research</h3>
+            </div>
+            <div class="step-tool-badge badge-research">⚡ NotebookLM & Deep Research</div>
+          </div>
+          <p class="step-desc">Investigate core architecture trade-offs and tech benchmarks with Deep Research, then ground them into NotebookLM for zero-hallucination RAG.</p>
+          <div class="step-actions">
+            <div class="step-skill-command">
+              <span>🛠️ Antigravity:</span>
+              <code>.agents/skills/google-deep-research/</code>
+            </div>
+            <div class="step-buttons">
+              <button class="btn-secondary btn-copy" onclick="openPromptModal('notebooklm')">✨ View Optimized Prompt</button>
+              <button class="btn-secondary" onclick="copyToClipboard('[Deep Research Query]: Produce a technical analysis report outlining architecture requirements, benchmark comparisons, and edge-case policies.')">📋 Copy Prompt</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Step 2 -->
+        <article class="pipeline-step-card">
+          <div class="step-card-header">
+            <div class="step-title-group">
+              <div class="step-num">2</div>
+              <h3 class="step-name">UI Architecture & Fast Frontend</h3>
+            </div>
+            <div class="step-tool-badge badge-ui">⚡ Google Stitch & Web Code Canvas</div>
+          </div>
+          <p class="step-desc">Generate polished responsive HTML/CSS layouts from prompts using Google Stitch, validating live micro-interactions in Gemini Web Code Canvas.</p>
+          <div class="step-actions">
+            <div class="step-skill-command">
+              <span>🛠️ Antigravity:</span>
+              <code>.agents/skills/google-stitch-ui/</code>
+            </div>
+            <div class="step-buttons">
+              <button class="btn-secondary btn-copy" onclick="openPromptModal('stitch')">✨ View Optimized Prompt</button>
+              <button class="btn-secondary" onclick="copyToClipboard('[Google Stitch Prompt]: Design a sleek, responsive dark/warm web application layout with header navigation and data panels.')">📋 Copy Prompt</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Step 3 -->
+        <article class="pipeline-step-card">
+          <div class="step-card-header">
+            <div class="step-title-group">
+              <div class="step-num">3</div>
+              <h3 class="step-name">Agentic Engineering & Integration</h3>
+            </div>
+            <div class="step-tool-badge badge-code">⚡ Antigravity Agent & Project IDX</div>
+          </div>
+          <p class="step-desc">Antigravity ingests Stitch UI assets into modular components, binds dynamic state management and business logic, ready for testing in Project IDX.</p>
+          <div class="step-actions">
+            <div class="step-skill-command">
+              <span>🛠️ Antigravity:</span>
+              <code>.agents/skills/google-master/</code>
+            </div>
+            <div class="step-buttons">
+              <button class="btn-secondary btn-copy" onclick="openPromptModal('antigravity')">✨ View Optimized Prompt</button>
+              <button class="btn-secondary" onclick="copyToClipboard('Antigravity Agent: Ingest Stitch UI assets, connect dynamic state management logic, and refactor into clean components.')">📋 Copy Prompt</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Step 4 -->
+        <article class="pipeline-step-card">
+          <div class="step-card-header">
+            <div class="step-title-group">
+              <div class="step-num">4</div>
+              <h3 class="step-name">AI Intelligence & Model Serving</h3>
+            </div>
+            <div class="step-tool-badge badge-model">⚡ Gemma 9B (Local Ollama)</div>
+          </div>
+          <p class="step-desc">Deploy local open-weight Gemma models with tailored system instructions and structured JSON output for private edge computing.</p>
+          <div class="step-actions">
+            <div class="step-skill-command">
+              <span>🛠️ Antigravity:</span>
+              <code>.agents/skills/google-model-hub/</code>
+            </div>
+            <div class="step-buttons">
+              <button class="btn-secondary btn-copy" onclick="openPromptModal('gemma')">✨ View Optimized Prompt</button>
+              <button class="btn-secondary" onclick="copyToClipboard('ollama run gemma2:9b\n# Local serving endpoint: http://localhost:11434/api/generate')">📋 Copy Prompt</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Step 5 -->
+        <article class="pipeline-step-card">
+          <div class="step-card-header">
+            <div class="step-title-group">
+              <div class="step-num">5</div>
+              <h3 class="step-name">Showcase, Demo & Visual Assets</h3>
+            </div>
+            <div class="step-tool-badge badge-media">⚡ Google Vids & Veo / ImageFX</div>
+          </div>
+          <p class="step-desc">Automatically produce product launch demo videos with Google Vids, generating cinematic hero backgrounds using Veo and ImageFX.</p>
+          <div class="step-actions">
+            <div class="step-skill-command">
+              <span>🛠️ Antigravity:</span>
+              <code>.agents/skills/google-master/</code>
+            </div>
+            <div class="step-buttons">
+              <button class="btn-secondary btn-copy" onclick="openPromptModal('vids')">✨ View Optimized Prompt</button>
+              <button class="btn-secondary" onclick="copyToClipboard('[Google Vids Storyboard]: Create a 60-second walkthrough storyboard and AI voiceover narration script.')">📋 Copy Prompt</button>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -129,7 +272,7 @@
       <div class="section-header">
         <h2 class="section-title" id="i18nSectionTitle">Google AI Tools Catalog & Antigravity Pairing</h2>
         <p class="section-desc" id="i18nSectionDesc">
-          15 Google AI tools integrated with Antigravity across UI design, backend infra, RAG, and creative media.
+          16 Google AI tools integrated with Antigravity across UI design, backend infra, RAG, and creative media.
         </p>
       </div>
 
@@ -144,9 +287,345 @@
         <button class="category-tab" data-category="utility" id="tabUtility">🔒 Utility</button>
       </div>
 
-      <!-- Tools Grid -->
+      <!-- Tools Grid (Pre-rendered Static HTML for SEO & Crawlers) -->
       <div class="tools-grid" id="toolsGrid">
-        <!-- Rendered by app.js -->
+        
+        <!-- 1. Google Stitch -->
+        <article class="tool-card">
+          <div>
+            <div class="tool-top">
+              <div>
+                <h3 class="tool-title">Google Stitch</h3>
+                <span class="tool-category-badge">UI & Frontend</span>
+              </div>
+            </div>
+            <p class="tool-desc">Rapidly generates responsive UI designs and semantic HTML/CSS code directly from text prompts or sketches.</p>
+            <div class="tool-antigravity-integration">
+              <div class="integration-label">Antigravity Pairing Tip</div>
+              <div class="integration-text">Use the google-stitch-ui skill to structure high-fidelity Stitch prompts, then import raw HTML/CSS into modular components.</div>
+            </div>
+          </div>
+          <div class="tool-footer">
+            <button class="btn-secondary" onclick="openPromptModal('stitch')">✨ Assemble Prompt</button>
+            <a class="btn-secondary" href="https://stitch.withgoogle.com" target="_blank" rel="noopener noreferrer">↗ Open Console</a>
+          </div>
+        </article>
+
+        <!-- 2. Project IDX -->
+        <article class="tool-card">
+          <div>
+            <div class="tool-top">
+              <div>
+                <h3 class="tool-title">Project IDX</h3>
+                <span class="tool-category-badge">UI & Frontend</span>
+              </div>
+            </div>
+            <p class="tool-desc">Browser-based cloud IDE with Gemini code assistance and multiplatform (Web, Android) built-in emulators.</p>
+            <div class="tool-antigravity-integration">
+              <div class="integration-label">Antigravity Pairing Tip</div>
+              <div class="integration-text">Ideal for instant zero-setup cross-device previewing and cloud deployment workflows.</div>
+            </div>
+          </div>
+          <div class="tool-footer">
+            <button class="btn-secondary" onclick="openPromptModal('idx')">✨ Assemble Prompt</button>
+            <a class="btn-secondary" href="https://idx.google.com" target="_blank" rel="noopener noreferrer">↗ Open Console</a>
+          </div>
+        </article>
+
+        <!-- 3. Gemini Web Code Canvas -->
+        <article class="tool-card">
+          <div>
+            <div class="tool-top">
+              <div>
+                <h3 class="tool-title">Gemini Web Code Canvas</h3>
+                <span class="tool-category-badge">UI & Frontend</span>
+              </div>
+            </div>
+            <p class="tool-desc">Interactive space inside Gemini chat to render live frontend code and visually iterate in real-time.</p>
+            <div class="tool-antigravity-integration">
+              <div class="integration-label">Antigravity Pairing Tip</div>
+              <div class="integration-text">Perfect for micro-component tuning (modals, animated charts, widgets) with instant visual feedback.</div>
+            </div>
+          </div>
+          <div class="tool-footer">
+            <button class="btn-secondary" onclick="openPromptModal('code-canvas')">✨ Assemble Prompt</button>
+            <a class="btn-secondary" href="https://gemini.google.com" target="_blank" rel="noopener noreferrer">↗ Open Console</a>
+          </div>
+        </article>
+
+        <!-- 4. Jules & Google Antigravity -->
+        <article class="tool-card">
+          <div>
+            <div class="tool-top">
+              <div>
+                <h3 class="tool-title">Jules & Google Antigravity</h3>
+                <span class="tool-category-badge">Dev Infra & Agents</span>
+              </div>
+            </div>
+            <p class="tool-desc">Autonomous developer AI agent driving multi-step code refactoring, bug fixes, and background orchestration.</p>
+            <div class="tool-antigravity-integration">
+              <div class="integration-label">Antigravity Pairing Tip</div>
+              <div class="integration-text">The central command center of Google Master. Formulates the entire 5-phase pipeline and executes code.</div>
+            </div>
+          </div>
+          <div class="tool-footer">
+            <button class="btn-secondary" onclick="openPromptModal('antigravity')">✨ Assemble Prompt</button>
+            <a class="btn-secondary" href="https://github.com/DrHomeRender/google-Master" target="_blank" rel="noopener noreferrer">↗ Open Console</a>
+          </div>
+        </article>
+
+        <!-- 5. Google AI Studio -->
+        <article class="tool-card">
+          <div>
+            <div class="tool-top">
+              <div>
+                <h3 class="tool-title">Google AI Studio</h3>
+                <span class="tool-category-badge">Dev Infra & Agents</span>
+              </div>
+            </div>
+            <p class="tool-desc">Fast prototyping console for Gemini 1.5/2.5 Pro and Flash with system prompt tuning and instant API code extraction.</p>
+            <div class="tool-antigravity-integration">
+              <div class="integration-label">Antigravity Pairing Tip</div>
+              <div class="integration-text">Pair with google-model-hub skill to inject system instructions and structured JSON Schema responses into your codebase.</div>
+            </div>
+          </div>
+          <div class="tool-footer">
+            <button class="btn-secondary" onclick="openPromptModal('ai-studio')">✨ Assemble Prompt</button>
+            <a class="btn-secondary" href="https://aistudio.google.com" target="_blank" rel="noopener noreferrer">↗ Open Console</a>
+          </div>
+        </article>
+
+        <!-- 6. Vertex AI -->
+        <article class="tool-card">
+          <div>
+            <div class="tool-top">
+              <div>
+                <h3 class="tool-title">Vertex AI</h3>
+                <span class="tool-category-badge">Dev Infra & Agents</span>
+              </div>
+            </div>
+            <p class="tool-desc">Enterprise MLOps platform for fine-tuning Gemini models on proprietary data and deploying production endpoints.</p>
+            <div class="tool-antigravity-integration">
+              <div class="integration-label">Antigravity Pairing Tip</div>
+              <div class="integration-text">Essential when scaling to high-traffic commercial environments with strict enterprise security and SLAs.</div>
+            </div>
+          </div>
+          <div class="tool-footer">
+            <button class="btn-secondary" onclick="openPromptModal('vertex-ai')">✨ Assemble Prompt</button>
+            <a class="btn-secondary" href="https://cloud.google.com/vertex-ai" target="_blank" rel="noopener noreferrer">↗ Open Console</a>
+          </div>
+        </article>
+
+        <!-- 7. Gemma -->
+        <article class="tool-card">
+          <div>
+            <div class="tool-top">
+              <div>
+                <h3 class="tool-title">Gemma (2B / 9B / 27B)</h3>
+                <span class="tool-category-badge">Dev Infra & Agents</span>
+              </div>
+            </div>
+            <p class="tool-desc">High-performance open-weight models from Google optimized for zero-cost, private on-device local execution.</p>
+            <div class="tool-antigravity-integration">
+              <div class="integration-label">Antigravity Pairing Tip</div>
+              <div class="integration-text">Use google-model-hub skill to scaffold local Ollama / vLLM serving scripts for completely private edge AI.</div>
+            </div>
+          </div>
+          <div class="tool-footer">
+            <button class="btn-secondary" onclick="openPromptModal('gemma')">✨ Assemble Prompt</button>
+            <a class="btn-secondary" href="https://ai.google.dev/gemma" target="_blank" rel="noopener noreferrer">↗ Open Console</a>
+          </div>
+        </article>
+
+        <!-- 8. Gemini Advanced -->
+        <article class="tool-card">
+          <div>
+            <div class="tool-top">
+              <div>
+                <h3 class="tool-title">Gemini Advanced</h3>
+                <span class="tool-category-badge">Workspace & Office</span>
+              </div>
+            </div>
+            <p class="tool-desc">Flagship web chat with 1M–2M token context window capable of ingesting whole codebases or hundreds of PDF pages.</p>
+            <div class="tool-antigravity-integration">
+              <div class="integration-label">Antigravity Pairing Tip</div>
+              <div class="integration-text">Use early in project ideation to summarize massive legacy repositories or domain requirements.</div>
+            </div>
+          </div>
+          <div class="tool-footer">
+            <button class="btn-secondary" onclick="openPromptModal('gemini-advanced')">✨ Assemble Prompt</button>
+            <a class="btn-secondary" href="https://gemini.google.com/advanced" target="_blank" rel="noopener noreferrer">↗ Open Console</a>
+          </div>
+        </article>
+
+        <!-- 9. Workspace Gemini -->
+        <article class="tool-card">
+          <div>
+            <div class="tool-top">
+              <div>
+                <h3 class="tool-title">Workspace Gemini</h3>
+                <span class="tool-category-badge">Workspace & Office</span>
+              </div>
+            </div>
+            <p class="tool-desc">Embedded AI sidepanel across Google Docs, Sheets, Gmail, and Drive for workflow automation.</p>
+            <div class="tool-antigravity-integration">
+              <div class="integration-label">Antigravity Pairing Tip</div>
+              <div class="integration-text">Automates spreadsheet formula generation and exports engineering metrics directly into presentation docs.</div>
+            </div>
+          </div>
+          <div class="tool-footer">
+            <button class="btn-secondary" onclick="openPromptModal('workspace-gemini')">✨ Assemble Prompt</button>
+            <a class="btn-secondary" href="https://workspace.google.com" target="_blank" rel="noopener noreferrer">↗ Open Console</a>
+          </div>
+        </article>
+
+        <!-- 10. NotebookLM -->
+        <article class="tool-card">
+          <div>
+            <div class="tool-top">
+              <div>
+                <h3 class="tool-title">NotebookLM</h3>
+                <span class="tool-category-badge">Knowledge & RAG</span>
+              </div>
+            </div>
+            <p class="tool-desc">Document-grounded research engine that uses strictly your uploaded sources (PDFs, papers) for zero-hallucination Q&A.</p>
+            <div class="tool-antigravity-integration">
+              <div class="integration-label">Antigravity Pairing Tip</div>
+              <div class="integration-text">Use google-deep-research skill to package tech specs into NotebookLM sources, securing trustworthy RAG grounding.</div>
+            </div>
+          </div>
+          <div class="tool-footer">
+            <button class="btn-secondary" onclick="openPromptModal('notebooklm')">✨ Assemble Prompt</button>
+            <a class="btn-secondary" href="https://notebooklm.google.com" target="_blank" rel="noopener noreferrer">↗ Open Console</a>
+          </div>
+        </article>
+
+        <!-- 11. Google Deep Research -->
+        <article class="tool-card">
+          <div>
+            <div class="tool-top">
+              <div>
+                <h3 class="tool-title">Google AI Mode & Deep Research</h3>
+                <span class="tool-category-badge">Knowledge & RAG</span>
+              </div>
+            </div>
+            <p class="tool-desc">Autonomous multi-step web exploration engine that synthesizes exhaustive, citation-backed technical reports.</p>
+            <div class="tool-antigravity-integration">
+              <div class="integration-label">Antigravity Pairing Tip</div>
+              <div class="integration-text">Run before selecting technology stacks to gather objective benchmarks, licensing constraints, and architectural trade-offs.</div>
+            </div>
+          </div>
+          <div class="tool-footer">
+            <button class="btn-secondary" onclick="openPromptModal('deep-research')">✨ Assemble Prompt</button>
+            <a class="btn-secondary" href="https://google.com" target="_blank" rel="noopener noreferrer">↗ Open Console</a>
+          </div>
+        </article>
+
+        <!-- 12. Guided Learning -->
+        <article class="tool-card">
+          <div>
+            <div class="tool-top">
+              <div>
+                <h3 class="tool-title">Guided Learning</h3>
+                <span class="tool-category-badge">Knowledge & RAG</span>
+              </div>
+            </div>
+            <p class="tool-desc">Socratic dialogue and flashcard generator designed to master unfamiliar complex technical architectures step-by-step.</p>
+            <div class="tool-antigravity-integration">
+              <div class="integration-label">Antigravity Pairing Tip</div>
+              <div class="integration-text">Ideal for onboarding engineering teams to new frameworks and architectural patterns.</div>
+            </div>
+          </div>
+          <div class="tool-footer">
+            <button class="btn-secondary" onclick="openPromptModal('guided-learning')">✨ Assemble Prompt</button>
+            <a class="btn-secondary" href="https://gemini.google.com" target="_blank" rel="noopener noreferrer">↗ Open Console</a>
+          </div>
+        </article>
+
+        <!-- 13. Google Vids -->
+        <article class="tool-card">
+          <div>
+            <div class="tool-top">
+              <div>
+                <h3 class="tool-title">Google Vids</h3>
+                <span class="tool-category-badge">Creative & Media</span>
+              </div>
+            </div>
+            <p class="tool-desc">AI-driven presentation video creator that generates storyboards, templates, and voiceovers from simple prompts.</p>
+            <div class="tool-antigravity-integration">
+              <div class="integration-label">Antigravity Pairing Tip</div>
+              <div class="integration-text">Instantly plans and records polished product launch walkthroughs and onboarding videos when development finishes.</div>
+            </div>
+          </div>
+          <div class="tool-footer">
+            <button class="btn-secondary" onclick="openPromptModal('vids')">✨ Assemble Prompt</button>
+            <a class="btn-secondary" href="https://vids.google.com" target="_blank" rel="noopener noreferrer">↗ Open Console</a>
+          </div>
+        </article>
+
+        <!-- 14. Veo & Google Flow -->
+        <article class="tool-card">
+          <div>
+            <div class="tool-top">
+              <div>
+                <h3 class="tool-title">Veo & Google Flow</h3>
+                <span class="tool-category-badge">Creative & Media</span>
+              </div>
+            </div>
+            <p class="tool-desc">Google flagship cinematic video model generating high-definition 1080p footage with multi-shot direction control.</p>
+            <div class="tool-antigravity-integration">
+              <div class="integration-label">Antigravity Pairing Tip</div>
+              <div class="integration-text">Crafts looping cinematic hero background videos and promotional teaser clips for web applications.</div>
+            </div>
+          </div>
+          <div class="tool-footer">
+            <button class="btn-secondary" onclick="openPromptModal('veo')">✨ Assemble Prompt</button>
+            <a class="btn-secondary" href="https://deepmind.google/technologies/veo" target="_blank" rel="noopener noreferrer">↗ Open Console</a>
+          </div>
+        </article>
+
+        <!-- 15. AI Test Kitchen -->
+        <article class="tool-card">
+          <div>
+            <div class="tool-top">
+              <div>
+                <h3 class="tool-title">AI Test Kitchen (ImageFX / MusicFX)</h3>
+                <span class="tool-category-badge">Creative & Media</span>
+              </div>
+            </div>
+            <p class="tool-desc">Creative sandbox powered by Imagen 3 for prompt-weight tuned image synthesis and ambient music generation.</p>
+            <div class="tool-antigravity-integration">
+              <div class="integration-label">Antigravity Pairing Tip</div>
+              <div class="integration-text">Generate sleek 3D application icons, UI illustrations, and brand audio assets for your app.</div>
+            </div>
+          </div>
+          <div class="tool-footer">
+            <button class="btn-secondary" onclick="openPromptModal('test-kitchen')">✨ Assemble Prompt</button>
+            <a class="btn-secondary" href="https://aitestkitchen.withgoogle.com" target="_blank" rel="noopener noreferrer">↗ Open Console</a>
+          </div>
+        </article>
+
+        <!-- 16. Temporary Chat -->
+        <article class="tool-card">
+          <div>
+            <div class="tool-top">
+              <div>
+                <h3 class="tool-title">Temporary Chat</h3>
+                <span class="tool-category-badge">Privacy & Security</span>
+              </div>
+            </div>
+            <p class="tool-desc">Disposable private session with no history storage and no model training for confidential prototyping.</p>
+            <div class="tool-antigravity-integration">
+              <div class="integration-label">Antigravity Pairing Tip</div>
+              <div class="integration-text">Isolate sensitive proprietary algorithms or internal business logic during security validation.</div>
+            </div>
+          </div>
+          <div class="tool-footer">
+            <button class="btn-secondary" onclick="openPromptModal('temporary-chat')">✨ Assemble Prompt</button>
+            <a class="btn-secondary" href="https://gemini.google.com" target="_blank" rel="noopener noreferrer">↗ Open Console</a>
+          </div>
+        </article>
+
       </div>
     </section>
   </main>
@@ -194,6 +673,6 @@
   </div>
 
   <!-- Application Script -->
-  <script src="app.js?v=2.0"></script>
+  <script src="app.js?v=2.1"></script>
 </body>
 </html>
