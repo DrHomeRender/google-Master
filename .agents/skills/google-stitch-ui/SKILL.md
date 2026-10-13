@@ -19,9 +19,9 @@ description: >-
 [Role & Context]: 전문 UI/UX 디자이너 겸 프론트엔드 엔지니어
 [Target App]: [예: AI 기반 프로젝트 관리 대시보드]
 [Design System & Aesthetic]:
-- Palette: 딥 다크 모드 (배경 #0B0F19, 카드 #161F30, 액센트 #38BDF8 / #818CF8)
-- Style: 세련된 글래스모피즘 (backdrop-filter: blur), 은은한 네온 보더 (1px solid rgba(255,255,255,0.08))
-- Typography: Inter 또는 Outfit 웹폰트, 명확한 시각적 계층 구조
+- Palette: 웜 데이라이트 모드 (배경 따스한 아이보리 #FBF9F5, 밀크 글래스 카드 #FFFFFF, 액센트 웜 코랄 #FF6B4A / 선샤인 앰버 #F59E0B)
+- Style: 세련된 소프트 글래스모피즘 (backdrop-filter: blur), 은은한 웜 디퓨즈 섀도우 (box-shadow: 0 10px 28px rgba(90,60,30,0.07))
+- Typography: Inter 또는 Outfit 웹폰트, 명확한 시각적 계층 구조 및 고대비 딥 차콜(#191C21)
 - Interactions: 호버 시 마이크로 인터랙션, 부드러운 트랜지션 (cubic-bezier)
 [Required Layout & Components]:
 1. 좌측 슬림 사이드바: 로고, 카테고리별 아이콘 메뉴, 사용자 프로필
