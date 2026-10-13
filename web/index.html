@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Master | Antigravity AI Ecosystem Orchestrator</title>
+  <meta name="description" content="Google Master - 구글 최신 AI 생태계와 Antigravity 자율 에이전트를 유기적으로 오케스트레이션하는 차세대 개발자 지능형 허브">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Light Effects -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="orb-1"></div>
+    <div class="orb-2"></div>
+    <div class="orb-3"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
+        </div>
+        <div>
+          <span class="brand-title">Google Master</span>
+          <span class="brand-badge">Antigravity Engine</span>
+        </div>
+      </div>
+      <div class="nav-status">
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          <span>.agents/skills 활성화됨</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-subtitle-tag">✨ Autonomous AI Development Orchestrator</div>
+      <h1 class="hero-title">
+        구글 AI 생태계 × <span class="text-gradient">Antigravity</span>
+      </h1>
+      <p class="hero-description">
+        단순한 도구 모음이 아닙니다. 당신이 만들고 싶은 개발 아이디어를 입력하면,<br>
+        Antigravity가 <strong>Stitch, NotebookLM, Gemma, AI Studio, Veo</strong>를 연결하여 최적의 5단계 파이프라인을 자동 완성합니다.
+      </p>
+    </section>
+
+    <!-- Section 1: Intent Synthesizer -->
+    <section class="synthesizer-card" id="intentSynthesizerSection">
+      <div class="synth-header">
+        <div class="synth-title">
+          <span>🎯</span>
+          <span>개발 의도 라우터 (Intent-to-Pipeline)</span>
+        </div>
+        <span class="synth-badge">자율 스킬 오케스트레이션</span>
+      </div>
+
+      <!-- Presets -->
+      <div class="presets-container" id="presetsContainer">
+        <!-- Rendered by app.js -->
+      </div>
+
+      <!-- Input Bar -->
+      <div class="input-group">
+        <input 
+          type="text" 
+          id="intentInput" 
+          class="intent-input" 
+          placeholder="어떤 앱이나 서비스를 개발하고 싶으신가요? (예: 온디바이스 AI 문서 요약 웹앱)"
+          aria-label="개발 의도 입력"
+        >
+        <button id="btnGenerate" class="btn-primary">
+          <span>🚀 파이프라인 생성</span>
+        </button>
+      </div>
+
+      <!-- Pipeline Visual Flow -->
+      <div class="pipeline-flow" id="pipelineFlow">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+
+    <!-- Section 2: Google Ecosystem Explorer -->
+    <section class="section" id="toolsExplorerSection">
+      <div class="section-header">
+        <h2 class="section-title">구글 AI 도구 카탈로그 & Antigravity 연계 팁</h2>
+        <p class="section-desc">
+          프론트엔드 디자인부터 인프라, 지식 RAG, 미디어 생성까지 안티그래비티와 결합할 수 있는 15개 구글 AI 툴킷
+        </p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="category-tabs" id="categoryTabs">
+        <button class="category-tab active" data-category="all">전체보기 (All)</button>
+        <button class="category-tab" data-category="ui">🎨 웹/앱 디자인 & UI</button>
+        <button class="category-tab" data-category="infra">⚙️ 개발 인프라 & 모델</button>
+        <button class="category-tab" data-category="workspace">📊 워크스페이스</button>
+        <button class="category-tab" data-category="research">🧠 지식 & 리서치</button>
+        <button class="category-tab" data-category="media">🎬 미디어 & 크리에이티브</button>
+        <button class="category-tab" data-category="utility">🔒 유틸리티</button>
+      </div>
+
+      <!-- Tools Grid -->
+      <div class="tools-grid" id="toolsGrid">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Prompt Forge Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">도구 최적화 프롬프트</h3>
+        <button class="modal-close" id="modalClose" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-field">
+          <label class="modal-label" for="modalPromptText">자동 조립된 최적화 프롬프트 (수정 가능):</label>
+          <textarea id="modalPromptText" class="modal-textarea"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="closeModal()">취소</button>
+        <button class="btn-primary" id="modalCopyBtn">📋 프롬프트 복사</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <span>✨</span>
+    <span id="toastMessage">클립보드에 복사되었습니다!</span>
+  </div>
+
+  <!-- Application Script -->
+  <script src="app.js"></script>
+</body>
+</html>
