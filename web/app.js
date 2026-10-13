@@ -677,8 +677,36 @@ function showToast(message) {
   }, 2600);
 }
 
+// Setup Theme
+let currentTheme = localStorage.getItem('google_master_theme') || 'light';
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const themeText = document.getElementById('themeText');
+
+function setTheme(theme) {
+  currentTheme = theme;
+  localStorage.setItem('google_master_theme', theme);
+  if (theme === 'dark') {
+    document.body.classList.add('theme-dark');
+    if (themeIcon) themeIcon.textContent = '🌙';
+    if (themeText) themeText.textContent = 'Dark';
+  } else {
+    document.body.classList.remove('theme-dark');
+    if (themeIcon) themeIcon.textContent = '☀️';
+    if (themeText) themeText.textContent = 'Warm';
+  }
+}
+
+function toggleTheme() {
+  setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+}
+
 // Setup Event Listeners
 function setupEventListeners() {
+  if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+  }
+
   langEnBtn.addEventListener('click', () => setLanguage('en'));
   langKoBtn.addEventListener('click', () => setLanguage('ko'));
 
@@ -715,5 +743,7 @@ function setupEventListeners() {
 // Initialize Application
 document.addEventListener('DOMContentLoaded', () => {
   setupEventListeners();
+  setTheme(currentTheme);
   setLanguage(currentLang);
 });
+

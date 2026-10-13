@@ -37,12 +37,19 @@
         </div>
       </div>
       <div class="nav-status">
+        <!-- Theme Toggle -->
+        <button id="themeToggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme">
+          <span id="themeIcon">☀️</span>
+          <span id="themeText">Warm</span>
+        </button>
+
         <!-- Language Switcher -->
-        <div class="lang-switch-group" role="group" aria-label="Language selection">
-          <button id="langEn" class="lang-btn active" title="English">EN</button>
-          <span class="lang-divider">/</span>
-          <button id="langKo" class="lang-btn" title="한국어">KO</button>
+        <div class="control-pill-group" role="group" aria-label="Language selection">
+          <button id="langEn" class="control-btn active" title="English">EN</button>
+          <span class="control-divider">/</span>
+          <button id="langKo" class="control-btn" title="한국어">KO</button>
         </div>
+
         <div class="status-pill">
           <span class="status-dot"></span>
           <span id="i18nStatusPill">.agents/skills active</span>
