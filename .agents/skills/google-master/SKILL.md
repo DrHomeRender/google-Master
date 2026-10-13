@@ -50,3 +50,20 @@ description: >-
 * UI 추출 및 변환 필요 시: `google-stitch-ui` 스킬 연계
 * 사전 지식 및 기술 탐구 필요 시: `google-deep-research` 스킬 연계
 * 모델 연동 및 코드 서빙 필요 시: `google-model-hub` 스킬 연계
+
+---
+
+## 📋 단계별 산출물 계약 및 품질 게이트 (Artifact Contracts & Quality Gates)
+
+단순 프롬프트 조립을 넘어 실질적인 개발 검증을 위해, 각 단계는 명확한 파일 산출물 계약(Artifact Contract)을 가지며, 에이전트는 산출물이 유효하게 생성되었는지 검증(Gate Check)한 후 다음 단계로 이행합니다:
+
+| 단계 | 핵심 도구 | 산출물 파일 계약 (Artifact Contract) | 검증 게이트 (Quality Gate) |
+| :--- | :--- | :--- | :--- |
+| **1. 리서치 & 스펙** | NotebookLM / Deep Research | `docs/research/spec_report.md` | 데이터 모델, 라이브러리 선정 근거, 예외 정책 포함 여부 검증 |
+| **2. UI & 레이아웃** | Google Stitch / Code Canvas | `ui/layout.html`, `ui/tokens.css` | 시맨틱 HTML5 태그 및 CSS 변수(:root) 분리 유효성 검증 |
+| **3. 에이전틱 구현** | Antigravity / Project IDX | `src/` 소스 코드 및 `tests/` | 빌드 성공 및 기본 단위 테스트 통과 확인 |
+| **4. AI 모델 엔진** | AI Studio / Gemma | `config/ai_model_config.json` | API 키 환경변수 바인딩 및 JSON Schema 출력 유효성 검증 |
+| **5. 쇼케이스 & 에셋** | Google Vids / Veo / ImageFX | `assets/showcase_storyboard.md` | 60초 데모 스토리보드 및 미디어 에셋 명세 검증 |
+
+> ⚠️ **품질 게이트 규칙**: 이전 단계의 산출물이 생성되지 않았거나 검증을 통과하지 못하면 다음 단계 작업을 진행하지 않고, 누락된 산출물을 먼저 보강합니다.
+

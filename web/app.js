@@ -471,12 +471,57 @@ function renderPresets() {
   });
 }
 
-// Generate Pipeline Flow
+
+// Multi-Factor Intent & Model Routing Analyzer
+function analyzeModelRouting(intent) {
+  const lower = intent.toLowerCase();
+
+  const isEdgeRequired = 
+    lower.includes('local') || lower.includes('로컬') ||
+    lower.includes('offline') || lower.includes('오프라인') ||
+    lower.includes('on-device') || lower.includes('온디바이스') ||
+    lower.includes('private') || lower.includes('개인정보') ||
+    lower.includes('gemma') || lower.includes('edge') || lower.includes('엣지');
+
+  const isEnterpriseDeploy = 
+    lower.includes('enterprise') || lower.includes('엔터프라이즈') ||
+    lower.includes('production') || lower.includes('상용') || lower.includes('mlops') ||
+    lower.includes('vertex') || lower.includes('finetun') || lower.includes('파인튜닝');
+
+  if (isEdgeRequired) {
+    return {
+      modelName: 'Gemma 9B (Local Ollama / vLLM)',
+      rationale_en: 'Architecture Rationale: Selected for zero-cost offline latency, edge independence, and strict local privacy.',
+      rationale_ko: '선정 근거: 클라우드 비용 제로, 오프라인 구동 및 완벽한 로컬 데이터 프라이버시를 보장합니다.',
+      toolRef: 'gemma',
+      skill: 'google-model-hub'
+    };
+  } else if (isEnterpriseDeploy) {
+    return {
+      modelName: 'Vertex AI (Gemini Enterprise)',
+      rationale_en: 'Architecture Rationale: Selected for enterprise SLA compliance, model fine-tuning, and scalable production monitoring.',
+      rationale_ko: '선정 근거: 엔터프라이즈 SLA 준수, 맞춤형 모델 파인튜닝 및 대규모 트래픽 모니터링을 제공합니다.',
+      toolRef: 'vertex-ai',
+      skill: 'google-model-hub'
+    };
+  } else {
+    return {
+      modelName: 'Google AI Studio (Gemini 2.5 Flash)',
+      rationale_en: 'Architecture Rationale: Selected for ultra-low latency, 1M multimodal context window, and rapid API prototyping.',
+      rationale_ko: '선정 근거: 초저지연 응답 속도, 100만 토큰 멀티모달 컨텍스트 및 신속한 API 프로토타이핑을 제공합니다.',
+      toolRef: 'ai-studio',
+      skill: 'google-model-hub'
+    };
+  }
+}
+
+// Generate Pipeline Flow (Safe DOM Creation without XSS injection)
 function generatePipeline(intent) {
   if (!intent.trim()) return;
 
   const dict = I18N[currentLang];
   const isEn = currentLang === 'en';
+  const modelRoute = analyzeModelRouting(intent);
 
   const steps = [
     {
@@ -513,7 +558,7 @@ function generatePipeline(intent) {
       tool: 'Antigravity Agent & Project IDX',
       badgeClass: 'badge-code',
       desc: isEn
-        ? `Antigravity ingests Stitch UI assets into modular components, binds state management and business logic, ready for testing in Project IDX.`
+        ? `Antigravity ingests Stitch UI assets into modular components, binds dynamic state management and business logic, ready for testing in Project IDX.`
         : `Antigravity가 Stitch에서 추출된 마크다운/HTML을 가져와 모듈형 컴포넌트로 구조화하고, 상태 관리 및 비즈니스 로직을 자율적으로 바인딩합니다.`,
       skill: 'google-master',
       toolRef: 'antigravity',
@@ -524,15 +569,13 @@ function generatePipeline(intent) {
     {
       num: 4,
       title: isEn ? 'AI Intelligence & Model Serving' : 'AI 모델 엔진 & 온디바이스 연동',
-      tool: (intent.toLowerCase().includes('gemma') || intent.includes('로컬') || intent.includes('온디바이스') || intent.toLowerCase().includes('device')) 
-        ? 'Gemma 9B (Local Ollama)' 
-        : 'Google AI Studio (Gemini Flash)',
+      tool: modelRoute.modelName,
       badgeClass: 'badge-model',
       desc: isEn
-        ? `Connect Gemini API via AI Studio or deploy local open-weight Gemma models with tailored system instructions and structured JSON output.`
-        : `클라우드 Gemini API 또는 로컬 Gemma 오픈 가중치 모델을 프로젝트에 주입하고, 최적화된 시스템 인스트럭션과 JSON 출력을 설정합니다.`,
-      skill: 'google-model-hub',
-      toolRef: (intent.toLowerCase().includes('gemma') || intent.includes('로컬') || intent.includes('온디바이스') || intent.toLowerCase().includes('device')) ? 'gemma' : 'ai-studio',
+        ? `${modelRoute.rationale_en} Configures tailored system instructions and structured JSON output schema.`
+        : `${modelRoute.rationale_ko} 최적화된 시스템 인스트럭션과 정형화된 JSON 출력 스키마를 구성합니다.`,
+      skill: modelRoute.skill,
+      toolRef: modelRoute.toolRef,
       prompt: isEn
         ? `[System Instruction]: You are the specialized intelligence engine for "${intent}". Extract key entities and output strictly formatted JSON responses.`
         : `[System Instruction]: 당신은 "${intent}" 시스템의 핵심 인텔리전스 엔진입니다. 빠르고 정확한 JSON 스키마 형식으로 응답을 출력하십시오.`
@@ -553,43 +596,84 @@ function generatePipeline(intent) {
     }
   ];
 
+  // Safe DOM Construction (No innerHTML injection of user strings)
   pipelineFlow.innerHTML = '';
   steps.forEach(step => {
-    const card = document.createElement('div');
+    const card = document.createElement('article');
     card.className = 'pipeline-step-card';
-    card.innerHTML = `
-      <div class="step-card-header">
-        <div class="step-title-group">
-          <div class="step-num">${step.num}</div>
-          <div class="step-name">${step.title}</div>
-        </div>
-        <div class="step-tool-badge ${step.badgeClass}">⚡ ${step.tool}</div>
-      </div>
-      <p class="step-desc">${step.desc}</p>
-      <div class="step-actions">
-        <div class="step-skill-command">
-          <span>${dict.pipelineAntigravityLabel}</span>
-          <code>.agents/skills/${step.skill}/</code>
-        </div>
-        <div class="step-buttons">
-          <button class="btn-secondary btn-copy" onclick="openPromptModal('${step.toolRef}', \`${escapeText(step.prompt)}\`)">
-            ${dict.btnViewPrompt}
-          </button>
-          <button class="btn-secondary" onclick="copyToClipboard('${step.prompt}', '${dict.toastCopied}')">
-            ${dict.btnCopyPrompt}
-          </button>
-        </div>
-      </div>
-    `;
+
+    const header = document.createElement('div');
+    header.className = 'step-card-header';
+
+    const titleGroup = document.createElement('div');
+    titleGroup.className = 'step-title-group';
+
+    const numEl = document.createElement('div');
+    numEl.className = 'step-num';
+    numEl.textContent = step.num;
+
+    const titleEl = document.createElement('h3');
+    titleEl.className = 'step-name';
+    titleEl.textContent = step.title;
+
+    titleGroup.appendChild(numEl);
+    titleGroup.appendChild(titleEl);
+
+    const badge = document.createElement('div');
+    badge.className = `step-tool-badge ${step.badgeClass}`;
+    badge.textContent = `⚡ ${step.tool}`;
+
+    header.appendChild(titleGroup);
+    header.appendChild(badge);
+
+    const descEl = document.createElement('p');
+    descEl.className = 'step-desc';
+    descEl.textContent = step.desc;
+
+    const actions = document.createElement('div');
+    actions.className = 'step-actions';
+
+    const skillCmd = document.createElement('div');
+    skillCmd.className = 'step-skill-command';
+    const skillLabel = document.createElement('span');
+    skillLabel.textContent = dict.pipelineAntigravityLabel;
+    const skillCode = document.createElement('code');
+    skillCode.textContent = `.agents/skills/${step.skill}/`;
+    skillCmd.appendChild(skillLabel);
+    skillCmd.appendChild(skillCode);
+
+    const btnGroup = document.createElement('div');
+    btnGroup.className = 'step-buttons';
+
+    const viewBtn = document.createElement('button');
+    viewBtn.className = 'btn-secondary btn-copy';
+    viewBtn.textContent = dict.btnViewPrompt;
+    viewBtn.addEventListener('click', () => {
+      openPromptModal(step.toolRef, step.prompt);
+    });
+
+    const copyBtn = document.createElement('button');
+    copyBtn.className = 'btn-secondary';
+    copyBtn.textContent = dict.btnCopyPrompt;
+    copyBtn.addEventListener('click', () => {
+      copyToClipboard(step.prompt, dict.toastCopied);
+    });
+
+    btnGroup.appendChild(viewBtn);
+    btnGroup.appendChild(copyBtn);
+
+    actions.appendChild(skillCmd);
+    actions.appendChild(btnGroup);
+
+    card.appendChild(header);
+    card.appendChild(descEl);
+    card.appendChild(actions);
+
     pipelineFlow.appendChild(card);
   });
 }
 
-function escapeText(str) {
-  return str.replace(/"/g, '&quot;').replace(/'/g, "\\'").replace(/\n/g, '\\n');
-}
-
-// Render Tools Grid
+// Render Tools Grid (Safe DOM Construction)
 function renderTools(category) {
   toolsGrid.innerHTML = '';
   const filtered = category === 'all' 
@@ -600,31 +684,69 @@ function renderTools(category) {
   const isEn = currentLang === 'en';
 
   filtered.forEach(tool => {
-    const card = document.createElement('div');
+    const card = document.createElement('article');
     card.className = 'tool-card';
-    card.innerHTML = `
-      <div>
-        <div class="tool-top">
-          <div>
-            <h3 class="tool-title">${tool.name}</h3>
-            <span class="tool-category-badge">${isEn ? tool.categoryName_en : tool.categoryName_ko}</span>
-          </div>
-        </div>
-        <p class="tool-desc">${isEn ? tool.desc_en : tool.desc_ko}</p>
-        <div class="tool-antigravity-integration">
-          <div class="integration-label">${dict.tipLabel}</div>
-          <div class="integration-text">${isEn ? tool.tip_en : tool.tip_ko}</div>
-        </div>
-      </div>
-      <div class="tool-footer">
-        <button class="btn-secondary" onclick="openPromptModal('${tool.id}')">
-          ${dict.btnAssemblePrompt}
-        </button>
-        <a class="btn-secondary" href="${tool.link}" target="_blank" rel="noopener noreferrer">
-          ${dict.btnOpenConsole}
-        </a>
-      </div>
-    `;
+
+    const contentDiv = document.createElement('div');
+    const topDiv = document.createElement('div');
+    topDiv.className = 'tool-top';
+
+    const titleDiv = document.createElement('div');
+    const title = document.createElement('h3');
+    title.className = 'tool-title';
+    title.textContent = tool.name;
+
+    const catBadge = document.createElement('span');
+    catBadge.className = 'tool-category-badge';
+    catBadge.textContent = isEn ? tool.categoryName_en : tool.categoryName_ko;
+
+    titleDiv.appendChild(title);
+    titleDiv.appendChild(catBadge);
+    topDiv.appendChild(titleDiv);
+
+    const desc = document.createElement('p');
+    desc.className = 'tool-desc';
+    desc.textContent = isEn ? tool.desc_en : tool.desc_ko;
+
+    const tipBox = document.createElement('div');
+    tipBox.className = 'tool-antigravity-integration';
+    const tipLabel = document.createElement('div');
+    tipLabel.className = 'integration-label';
+    tipLabel.textContent = dict.tipLabel;
+    const tipText = document.createElement('div');
+    tipText.className = 'integration-text';
+    tipText.textContent = isEn ? tool.tip_en : tool.tip_ko;
+
+    tipBox.appendChild(tipLabel);
+    tipBox.appendChild(tipText);
+
+    contentDiv.appendChild(topDiv);
+    contentDiv.appendChild(desc);
+    contentDiv.appendChild(tipBox);
+
+    const footer = document.createElement('div');
+    footer.className = 'tool-footer';
+
+    const assembleBtn = document.createElement('button');
+    assembleBtn.className = 'btn-secondary';
+    assembleBtn.textContent = dict.btnAssemblePrompt;
+    assembleBtn.addEventListener('click', () => {
+      openPromptModal(tool.id);
+    });
+
+    const linkBtn = document.createElement('a');
+    linkBtn.className = 'btn-secondary';
+    linkBtn.href = tool.link;
+    linkBtn.target = '_blank';
+    linkBtn.rel = 'noopener noreferrer';
+    linkBtn.textContent = dict.btnOpenConsole;
+
+    footer.appendChild(assembleBtn);
+    footer.appendChild(linkBtn);
+
+    card.appendChild(contentDiv);
+    card.appendChild(footer);
+
     toolsGrid.appendChild(card);
   });
 }

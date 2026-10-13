@@ -58,10 +58,30 @@ Drop Google Master into any workspace, and Antigravity automatically gains:
   * `google-model-hub`: Gemini API SDK integration & local Gemma (Ollama/vLLM) serving.
 
 ### 2. 🖥️ Interactive Web Command Center (`web/`)
-A modern, dark/glassmorphic web dashboard inspired by Google DeepMind:
-* **Intent-to-Pipeline Generator**: Type any application concept (e.g. *"On-device PDF podcast summarizer"*), and receive a visual 5-step roadmap.
-* **Prompt Forge**: 1-click tailored prompts formatted specifically for Google Stitch, NotebookLM, AI Studio, and Veo.
-* **Tool Catalog**: Filterable directory of all 15 Google AI tools with Antigravity pairing tips and deep-links.
+A modern, warm daylight web dashboard (with optional dark mode) inspired by Google DeepMind:
+* **Pre-rendered Static HTML**: 100% crawlable by search engines and link preview bots with zero JS dependency for first paint.
+* **Intent-to-Pipeline Router**: Type any application concept, and receive an automated 5-step roadmap with multi-factor architectural rationale.
+* **Safe Prompt Forge**: 1-click tailored prompts formatted specifically for Google Stitch, NotebookLM, AI Studio, and Veo with DOM-safe execution (XSS-protected).
+* **Tool Catalog**: Filterable directory of all 16 Google AI tools with Antigravity pairing tips and deep-links.
+
+### 3. 📋 Artifact Contracts & Quality Gates
+Each development phase enforces explicit input/output file contracts before advancing:
+* **Phase 1 (Research)**: `docs/research/spec_report.md` (Domain specs & trade-offs)
+* **Phase 2 (UI/UX)**: `ui/layout.html` & `ui/tokens.css` (Semantic markup & design tokens)
+* **Phase 3 (Engineering)**: `src/` & test passes (Business logic & unit tests)
+* **Phase 4 (Model Engine)**: `config/ai_model_config.json` (Structured JSON schema bindings)
+* **Phase 5 (Showcase)**: `assets/showcase_storyboard.md` (Demo walkthrough script)
+
+---
+
+## 🗺️ Project Maturity & Evolution Roadmap
+
+| Milestone | Status | Scope |
+| :--- | :--- | :--- |
+| **v1.0 Basic Skills** | ✅ Complete | Initial Antigravity skill definitions and rules. |
+| **v2.0 Web Hub & i18n** | ✅ Complete | Interactive web hub, bilingual EN/KO toggle, warm daylight theme. |
+| **v2.2 Production Hardening** | ✅ Complete | P0 XSS remediation, safe DOM generation, static HTML pre-rendering, artifact contracts. |
+| **v3.0 MCP Tool Direct Invocation** | 🚀 Planned | Programmatic integration via Model Context Protocol (MCP) to invoke Stitch SDK, NotebookLM CLI, and Gemma API directly without manual copy-paste. |
 
 ---
 
