@@ -105,13 +105,13 @@ Each development phase enforces explicit input/output file contracts before adva
 | Category | Tool | Core Capability | Antigravity Pairing |
 | :--- | :--- | :--- | :--- |
 | **UI & Frontend** | **Google Stitch** | Prompt/sketch to responsive HTML/CSS | Generates Stitch prompts & imports raw code into modular components |
-| | **Project IDX** | Cloud IDE with cross-platform emulators | Instant previewing & cross-device testing |
+| | **Firebase Studio (Project IDX)** | Cloud IDE with cross-platform emulators | Instant previewing & cross-device testing |
 | | **Code Canvas** | Real-time interactive UI rendering in Gemini | Interactive micro-component visual tuning |
 | **Dev Infra & Models** | **Antigravity & Jules** | Autonomous agent refactoring & coding | Central command hub for codebase execution |
 | | **Google AI Studio** | Fast Gemini prototyping & API extraction | System instruction injection & JSON schema code generation |
 | | **Vertex AI** | Enterprise MLOps & model fine-tuning | Production enterprise deployment |
 | | **Gemma (Gemma 2 & 3)** | High-performance open-weight models (1B–27B) | Free, private on-device local serving (Ollama/vLLM) |
-| **Workspace & Office** | **Gemini Advanced** | 1M–2M token context analysis | Rapid ingestion of massive specification documents |
+| **Workspace & Office** | **Gemini Advanced (Google AI Pro)** | 1M–2M token context analysis | Rapid ingestion of massive specification documents |
 | | **Workspace Gemini** | AI sidepanel in Docs, Sheets, Gmail | Sheet formula automation & client documentation export |
 | **Research & RAG** | **NotebookLM** | Document-grounded RAG & audio podcasts | Clean markdown specification grounding & zero-hallucination Q&A |
 | | **Deep Research** | Multi-step autonomous web research | Objective benchmarks & tech stack trade-off reports |
