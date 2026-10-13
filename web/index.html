@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google Master | Antigravity AI Ecosystem Orchestrator</title>
-  <meta name="description" content="Google Master - 구글 최신 AI 생태계와 Antigravity 자율 에이전트를 유기적으로 오케스트레이션하는 차세대 개발자 지능형 허브">
+  <meta name="description" content="Google Master - The Autonomous Google AI Ecosystem Orchestrator & Antigravity Copilot">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,9 +37,15 @@
         </div>
       </div>
       <div class="nav-status">
+        <!-- Language Switcher -->
+        <div class="lang-switch-group" role="group" aria-label="Language selection">
+          <button id="langEn" class="lang-btn active" title="English">EN</button>
+          <span class="lang-divider">/</span>
+          <button id="langKo" class="lang-btn" title="한국어">KO</button>
+        </div>
         <div class="status-pill">
           <span class="status-dot"></span>
-          <span>.agents/skills 활성화됨</span>
+          <span id="i18nStatusPill">.agents/skills active</span>
         </div>
       </div>
     </div>
@@ -48,30 +54,30 @@
   <main class="container">
     <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-subtitle-tag">✨ Autonomous AI Development Orchestrator</div>
-      <h1 class="hero-title">
-        구글 AI 생태계 × <span class="text-gradient">Antigravity</span>
+      <div class="hero-subtitle-tag" id="i18nHeroTag">✨ Autonomous AI Development Orchestrator</div>
+      <h1 class="hero-title" id="i18nHeroTitle">
+        Google AI Ecosystem × <span class="text-gradient">Antigravity</span>
       </h1>
-      <p class="hero-description">
-        단순한 도구 모음이 아닙니다. 당신이 만들고 싶은 개발 아이디어를 입력하면,<br>
-        Antigravity가 <strong>Stitch, NotebookLM, Gemma, AI Studio, Veo</strong>를 연결하여 최적의 5단계 파이프라인을 자동 완성합니다.
+      <p class="hero-description" id="i18nHeroDesc">
+        Not just a static list of tools. Describe your vision, and Antigravity orchestrates 
+        <strong>Stitch, NotebookLM, Gemma, AI Studio, Veo</strong> into a streamlined 5-phase engineering roadmap.
       </p>
 
       <!-- Quick Guide Ribbon -->
-      <div class="quick-guide-ribbon" role="region" aria-label="3단계 빠른 사용 가이드">
+      <div class="quick-guide-ribbon" role="region" aria-label="3-Step Quick Guide">
         <div class="guide-step">
           <span class="guide-num">Step 1</span>
-          <span class="guide-text">💡 아이디어 입력 or 프리셋 선택</span>
+          <span class="guide-text" id="i18nGuideStep1">💡 Pick a preset or enter your idea</span>
         </div>
         <span class="guide-arrow" aria-hidden="true">➔</span>
         <div class="guide-step">
           <span class="guide-num">Step 2</span>
-          <span class="guide-text">📋 단계별 최적화 프롬프트 1클릭 복사</span>
+          <span class="guide-text" id="i18nGuideStep2">📋 1-Click copy tailored prompts across 5 phases</span>
         </div>
         <span class="guide-arrow" aria-hidden="true">➔</span>
         <div class="guide-step">
           <span class="guide-num">Step 3</span>
-          <span class="guide-text">🚀 구글 콘솔로 이동해 붙여넣고 제작!</span>
+          <span class="guide-text" id="i18nGuideStep3">🚀 Paste into Google console & start building!</span>
         </div>
       </div>
     </section>
@@ -81,9 +87,9 @@
       <div class="synth-header">
         <div class="synth-title">
           <span>🎯</span>
-          <span>개발 의도 라우터 (Intent-to-Pipeline)</span>
+          <span id="i18nSynthTitle">Intent-to-Pipeline Router</span>
         </div>
-        <span class="synth-badge">자율 스킬 오케스트레이션</span>
+        <span class="synth-badge" id="i18nSynthBadge">Autonomous Skill Orchestration</span>
       </div>
 
       <!-- Presets -->
@@ -97,11 +103,11 @@
           type="text" 
           id="intentInput" 
           class="intent-input" 
-          placeholder="어떤 앱이나 서비스를 개발하고 싶으신가요? (예: 온디바이스 AI 문서 요약 웹앱)"
-          aria-label="개발 의도 입력"
+          placeholder="What app or service do you want to build? (e.g. On-device AI doc summarizer webapp)"
+          aria-label="Development intent input"
         >
         <button id="btnGenerate" class="btn-primary">
-          <span>🚀 파이프라인 생성</span>
+          <span id="i18nBtnGenerate">🚀 Generate Pipeline</span>
         </button>
       </div>
 
@@ -114,21 +120,21 @@
     <!-- Section 2: Google Ecosystem Explorer -->
     <section class="section" id="toolsExplorerSection">
       <div class="section-header">
-        <h2 class="section-title">구글 AI 도구 카탈로그 & Antigravity 연계 팁</h2>
-        <p class="section-desc">
-          프론트엔드 디자인부터 인프라, 지식 RAG, 미디어 생성까지 안티그래비티와 결합할 수 있는 15개 구글 AI 툴킷
+        <h2 class="section-title" id="i18nSectionTitle">Google AI Tools Catalog & Antigravity Pairing</h2>
+        <p class="section-desc" id="i18nSectionDesc">
+          15 Google AI tools integrated with Antigravity across UI design, backend infra, RAG, and creative media.
         </p>
       </div>
 
       <!-- Category Filter Tabs -->
       <div class="category-tabs" id="categoryTabs">
-        <button class="category-tab active" data-category="all">전체보기 (All)</button>
-        <button class="category-tab" data-category="ui">🎨 웹/앱 디자인 & UI</button>
-        <button class="category-tab" data-category="infra">⚙️ 개발 인프라 & 모델</button>
-        <button class="category-tab" data-category="workspace">📊 워크스페이스</button>
-        <button class="category-tab" data-category="research">🧠 지식 & 리서치</button>
-        <button class="category-tab" data-category="media">🎬 미디어 & 크리에이티브</button>
-        <button class="category-tab" data-category="utility">🔒 유틸리티</button>
+        <button class="category-tab active" data-category="all" id="tabAll">All Tools</button>
+        <button class="category-tab" data-category="ui" id="tabUi">🎨 UI & Frontend</button>
+        <button class="category-tab" data-category="infra" id="tabInfra">⚙️ Dev Infra & Models</button>
+        <button class="category-tab" data-category="workspace" id="tabWorkspace">📊 Workspace</button>
+        <button class="category-tab" data-category="research" id="tabResearch">🧠 Knowledge & RAG</button>
+        <button class="category-tab" data-category="media" id="tabMedia">🎬 Creative & Media</button>
+        <button class="category-tab" data-category="utility" id="tabUtility">🔒 Utility</button>
       </div>
 
       <!-- Tools Grid -->
@@ -142,18 +148,18 @@
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title" id="modalTitle">도구 최적화 프롬프트</h3>
-        <button class="modal-close" id="modalClose" aria-label="닫기">&times;</button>
+        <h3 class="modal-title" id="modalTitle">Optimized Tool Prompt</h3>
+        <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
       </div>
       <div class="modal-body">
         <div class="modal-field">
-          <label class="modal-label" for="modalPromptText">자동 조립된 최적화 프롬프트 (수정 가능):</label>
+          <label class="modal-label" for="modalPromptText" id="i18nModalLabel">Synthesized prompt ready for copy & paste (editable):</label>
           <textarea id="modalPromptText" class="modal-textarea"></textarea>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn-secondary" onclick="closeModal()">취소</button>
-        <button class="btn-primary" id="modalCopyBtn">📋 프롬프트 복사</button>
+        <button class="btn-secondary" onclick="closeModal()" id="i18nModalCancel">Cancel</button>
+        <button class="btn-primary" id="modalCopyBtn">📋 Copy Prompt</button>
       </div>
     </div>
   </div>
@@ -161,7 +167,7 @@
   <!-- Toast Notification -->
   <div class="toast" id="toast">
     <span>✨</span>
-    <span id="toastMessage">클립보드에 복사되었습니다!</span>
+    <span id="toastMessage">Copied to clipboard!</span>
   </div>
 
   <!-- Application Script -->
