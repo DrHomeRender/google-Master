@@ -20,14 +20,30 @@
 
 ## 🌟 Why Google Master?
 
-Google provides an unrivaled array of state-of-the-art AI instruments—from **Stitch** for prompt-to-UI generation, **NotebookLM** for hallucination-free research RAG, **AI Studio & Vertex AI** for Gemini 3 & 2.5 models, **Gemma** for private on-device edge computing, to **Veo & Vids** for automated release showcases.
+### 💡 The Honest Reality: In the Age of Claude & GPT
+Let's be candid about the modern AI developer landscape:
+* **Claude and GPT currently dominate developer mindshare**: In single-prompt, monolithic coding benchmarks, monolithic models often outshine standard Gemini completions.
+* **The "Solo AI Coding" Trap**: When developers ask an autonomous IDE agent (like Antigravity) to build an entire app from a single prompt, the agent inevitably hits hard ceilings: **hallucinated business logic, context degradation, lack of design tokens (resulting in generic/cliché UIs), and skyrocketing API bills**.
 
-However, developers frequently struggle with:
-1. Knowing *which* Google tool is ideal for their current development stage.
-2. Manually switching contexts across dozens of browser tabs and consoles.
-3. Lack of agentic automation connecting Google tools directly into their IDE.
+### ⚡ Google's Secret Weapon: The Fragmented, Cost-Effective Arsenal
+Google's decisive advantage has never been just a single LLM endpoint. It is the **unrivaled breadth, specialization, and cost efficiency (often zero-cost / generous free tier)** of its 16 dedicated AI instruments:
+* **Google Stitch**: Prompt/sketch-to-UI generation with production-grade HTML/CSS design tokens—infinitely superior to raw LLM code generation.
+* **NotebookLM**: Zero-hallucination document-grounded RAG and specification verification.
+* **Google Deep Research**: Autonomous multi-step technical evaluation and trade-off synthesis.
+* **Gemma (1B–27B)**: High-performance, 100% free, private on-device local execution.
+* **Google Veo & Vids**: Cinematic 1080p release video showcase generation.
 
-**Google Master** solves this by pairing **Google Antigravity's autonomous agent engine** with a structured **5-Phase AI Pipeline** and an interactive **Visual Command Center**.
+### 🧩 The Problem & The Solution
+**The problem?** These 16 world-class tools are scattered across separate URLs and consoles. Most developers don't even know they exist, and AI coding agents routinely bypass them to write brittle, ad-hoc code.
+
+**Google Master is the missing conductor:**  
+It installs directly into Google Antigravity as an **uncompromising orchestrator rule**. When you clone Google Master and ask Antigravity to build anything, the agent is strictly forbidden from writing ungrounded, ad-hoc code. Instead, it systematically marshals all 16 Google AI tools through an enforced **5-Phase Engineering Lifecycle** (Research ➔ UI ➔ Engineering ➔ Model Engine ➔ Showcase).
+
+### 🛡️ Supreme Directive: Zero-Deception & Radical Honesty
+The single greatest reason developers abandon and reject LLMs is **AI deception—faking actions, fabricating completions, and exaggerating outcomes without executing real work**:
+1. **No Fake Completions**: The agent is strictly forbidden from generating empty markdown summaries and claiming external tools (Stitch, Veo) are "integrated" when no actual execution occurred.
+2. **Upfront Capability Boundary Disclosure**: The agent must always transparently disclose the boundary: what it executes locally (code, real Gemini API calls, browser sessions) versus what requires the user's Google account console (Stitch, Veo).
+3. **Pre-Action Alignment**: Asking *"Here is what I can directly execute, and here is what requires your account. Shall we proceed?"* before overpromising or fabricating results.
 
 ---
 
