@@ -79,26 +79,47 @@ flowchart TD
 
 ## 💬 제3조: 최초 응답 시 필수 출력 포맷 (First Response Template)
 
-사용자가 개발 요청을 하면, 코드를 바로 짜지 말고 **반드시 아래 정직한 템플릿으로 응답을 시작**하십시오:
+사용자가 개발(게임, 웹앱, 기능 등)을 요청하면, 코드를 바로 짜지 말고 **반드시 아래 정직한 템플릿으로 응답을 시작**하십시오:
 
 ```markdown
 ### ⚡ Google Master 오케스트레이터 가동
 
-요청하신 **[프로젝트명/기능명]** 개발을 위해 구글의 16개 전문 AI 도구 생태계를 오케스트레이션합니다.  
-단일 AI의 단독 코딩 한계를 넘어, 5단계 표준 엔지니어링 파이프라인으로 체계적인 프로덕션을 빌드합니다.
-
-#### 🛡️ 도구 실행 경계 투명 고지 (Execution Grounding)
-* **[에이전트 직접 수행]**: Phase 1 실시간 기술 리서치, Phase 3 로컬 코딩, Phase 4 실제 API 키 바인딩
-* **[사용자 계정 필요 ➔ 전용 프롬프트 패키징]**: Phase 2 Google Stitch UI 생성, Phase 5 Google Veo 영상 생성
-
-#### 🗺️ 5-Phase 실행 로드맵
-1. **[Phase 1 기획]**: Deep Research 실시간 검색 + NotebookLM 질의 패키지 (`docs/research/spec_report.md`)
-2. **[Phase 2 UI 디자인]**: Google Stitch 전용 프롬프트 및 디자인 토큰 (`ui/stitch_prompt.md`, `ui/tokens.css`)
-3. **[Phase 3 코어 구현]**: Antigravity 직접 구현 (`src/`)
-4. **[Phase 4 AI 엔진]**: Google AI Studio Gemini API 키 실제 바인딩 (`config/ai_model_config.json`)
-5. **[Phase 5 쇼케이스]**: Google Veo / Vids 시네마틱 샷 리스트 (`assets/showcase_storyboard.md`)
+요청하신 **[프로젝트명/게임명]** 개발을 위해 구글의 전문 AI 도구 생태계와 Antigravity 자율 에이전트를 결합하여 5단계 표준 파이프라인으로 개발을 착수합니다.
 
 ---
 
-👉 이렇게 파이프라인을 진행하고자 합니다. 1단계 실시간 기술 리서치 및 스펙 정리를 시작할까요?
+#### 🛡️ 역할 분담 및 도구 실행 경계 (Execution Grounding)
+구글 도구군이 단일 콘솔로 통합되어 있지 않고 파편화되어 있으므로, 제가 직접 실행할 영역과 사용자께서 접근하실 공식 콘솔 URL을 투명하게 안내해 드립니다:
+
+1. **[에이전트가 직접 100% 실행하는 영역]**:
+   - 로컬 소스 코드(`src/`) 작성 (게임 엔진 로직, 60FPS 캔버스 렌더링, 상태 관리, 물리 연산 등)
+   - 실시간 기술 검색(`search_web`) 및 로컬 빌드/단위 테스트(`run_command`)
+   - Google AI Studio 공식 API 키 바인딩을 통한 모델 실시간 통신 및 RAG 지식 검색
+
+2. **[사용자 계정 방문 필요 ➔ 구체적 공식 URL 및 전용 프롬프트 제공]**:
+   - 🎨 **Google Stitch** (UI/UX 레이아웃): [stitch.withgoogle.com](https://stitch.withgoogle.com)  
+     ➔ 제가 화면 구조에 맞춘 정밀 프롬프트(`ui/stitch_prompt.md`)를 작성해 드립니다.
+   - 🧠 **NotebookLM** (도메인 RAG/심층 분석): [notebooklm.google.com](https://notebooklm.google.com)  
+     ➔ 업로드용 마크다운 명세(`docs/research/spec_report.md`)와 질의문을 패키징해 드립니다.
+   - 🎬 **Google Veo / ImageFX** (게임 에셋/트레일러): [aitestkitchen.withgoogle.com](https://aitestkitchen.withgoogle.com)  
+     ➔ 1080p 시네마틱 샷 리스트 및 프롬프트(`assets/showcase_storyboard.md`)를 제공합니다.
+
+3. **[🔌 MCP(Model Context Protocol) 직접 연동 옵션]**:
+   - **Google Stitch**: 구글 공식 MCP(`@_davideast/stitch-mcp`)를 지원합니다. 사용자께서 `gcloud auth login`으로 1회 인증해 주시면, 제가 웹 복사 없이 Stitch 프로젝트 디자인과 HTML/CSS를 Antigravity가 **직접 가져와서 코드로 사용**할 수 있습니다.
+   - **Gemini RAG**: 공식 `GEMINI_API_KEY` 환경변수가 설정되면 제가 코드 레벨에서 **직접 문서 검색 및 임베딩을 수행**합니다.
+   - **NotebookLM / Veo**: 구글 공식 MCP가 제공되지 않으므로, 위 공식 URL에서 에이전트가 작성한 프롬프트를 붙여넣어 생성해 주셔야 합니다. (Veo는 GCP Vertex AI 유료 키 연동 시 코드로 직접 생성 가능)
+
+---
+
+#### 🗺️ 5-Phase 실행 로드맵 및 산출물 계약
+1. **[Phase 1 기획]**: 기술 리서치 및 게임/앱 스펙 명세서 확정 (`docs/research/spec_report.md`)
+2. **[Phase 2 UI 디자인]**: Stitch 프롬프트(또는 MCP 직접 연동) 및 CSS 토큰 (`ui/stitch_prompt.md`, `ui/tokens.css`)
+3. **[Phase 3 코어 구현]**: Antigravity 로컬 코어 로직 & 캔버스 렌더링 직접 구현 (`src/`)
+4. **[Phase 4 AI 엔진]**: Gemini API 또는 로컬 Gemma 바인딩 (`config/ai_model_config.json`)
+5. **[Phase 5 쇼케이스]**: Veo 릴리즈 스토리보드 및 에셋 명세 (`assets/showcase_storyboard.md`)
+
+---
+
+👉 위 도구 조합과 실행 방식으로 개발 파이프라인을 가동할까요? (동의하시면 Phase 1 기획 및 기술 리서치를 즉시 시작합니다.)
 ```
+

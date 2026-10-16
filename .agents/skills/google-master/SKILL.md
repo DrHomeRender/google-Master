@@ -14,24 +14,23 @@ description: >-
 
 ## 🛠️ 실행 절차 (Workflow Procedure)
 
-### 1단계: 즉석 코딩 중단 및 5-Phase 로드맵 공표
-사용자가 무언가를 만들어달라고 요청하면, 바로 코드를 짜지 않고 5단계 맞춤형 파이프라인을 먼저 구성하여 사용자에게 선언합니다:
+### 1단계: 즉석 코딩 중단 및 역할 분담·로드맵 공표
+사용자가 게임, 웹앱, 기능 개발을 요청하면 바로 코드를 짜지 않고, 파편화된 구글 도구별 **공식 콘솔 URL**과 **MCP 직접 연동 가능 여부**를 명시한 5단계 맞춤형 로드맵을 먼저 선언합니다 ([AGENTS.md](../../../AGENTS.md) 제3조 템플릿 준수):
 
-```markdown
-### 🗺️ Google Master 5-Phase 개발 파이프라인
-1. **[Phase 1: 리서치 & 스펙 확정]**: NotebookLM / Deep Research ➔ `docs/research/spec_report.md`
-2. **[Phase 2: UI/UX 고속 빌드]**: Google Stitch / Web Code Canvas ➔ `ui/stitch_prompt.md`, `ui/layout.html`
-3. **[Phase 3: 에이전틱 개발 & 통합]**: Antigravity (+ Jules / IDX) ➔ `src/` & `tests/`
-4. **[Phase 4: AI 모델 엔진]**: Google AI Studio / Gemma ➔ `config/ai_model_config.json`
-5. **[Phase 5: 에셋 & 데모 쇼케이스]**: Google Vids / Veo / ImageFX ➔ `assets/showcase_storyboard.md`
-```
+* **에이전트 직접 수행**: 로컬 코어 코딩(`src/`), 캔버스 렌더링, 웹 검색, 단위 테스트, Gemini API 키 바인딩.
+* **사용자 콘솔 URL & 프롬프트 패키징**:
+  * Stitch UI: `https://stitch.withgoogle.com` (또는 Stitch MCP로 직접 연동)
+  * NotebookLM RAG: `https://notebooklm.google.com` (공식 마크다운 스펙 제공)
+  * Veo/ImageFX 에셋: `https://aitestkitchen.withgoogle.com` (시네마틱 샷 리스트 제공)
+* **MCP 직접 연동 옵션 안내**:
+  * Google Stitch는 공식 MCP(`@_davideast/stitch-mcp`)를 지원하므로, 사용자 1회 인증(`gcloud auth login`) 시 에이전트가 화면 코드를 직접 긁어와 프로젝트에 주입 가능함을 알립니다.
 
 ### 2단계: 즉시 사용 가능한 구글 툴 프롬프트 및 산출물 합성
-사용자가 즉시 해당 구글 도구에 복사·실행할 수 있도록 맞춤형 프롬프트를 함께 작성하고 디렉토리를 구축합니다:
-* **Google Stitch 프롬프트 (`ui/stitch_prompt.md`)**: 역할, 테마, 필수 컴포넌트 목록 명시.
-* **NotebookLM 준비 자료 (`docs/research/spec_report.md`)**: 업로드할 핵심 소스 리스트와 질의 목록.
-* **Google AI Studio 템플릿 (`config/ai_model_config.json`)**: System Instruction 및 JSON 스키마.
-* **Google Veo 릴리즈 스토리보드 (`assets/showcase_storyboard.md`)**: 60초 프로모션 샷 리스트.
+사용자가 공식 콘솔 URL로 이동하여 바로 붙여넣을 수 있도록 맞춤형 프롬프트를 함께 작성하고 디렉토리를 구축합니다:
+* **Google Stitch 프롬프트 (`ui/stitch_prompt.md`)**: [stitch.withgoogle.com](https://stitch.withgoogle.com) 전용 UI 구조, HSL 테마, 컴포넌트 명세. (또는 MCP 연동 시 직통 추출)
+* **NotebookLM 준비 자료 (`docs/research/spec_report.md`)**: [notebooklm.google.com](https://notebooklm.google.com) 업로드용 핵심 소스 및 질의문.
+* **Google AI Studio 템플릿 (`config/ai_model_config.json`)**: [aistudio.google.com](https://aistudio.google.com) 연동 System Instruction 및 JSON 스키마.
+* **Google Veo 릴리즈 스토리보드 (`assets/showcase_storyboard.md`)**: [aitestkitchen.withgoogle.com](https://aitestkitchen.withgoogle.com) 60초 프로모션 샷 리스트.
 
 ### 3단계: 특화 서브 스킬 연계 및 Antigravity 구현 착수
 각 단계별로 전용 서브 스킬을 호출하여 점진적으로 완성도를 높입니다:

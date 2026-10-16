@@ -1,12 +1,38 @@
 # 📚 Google AI Ecosystem Tools Directory & Prompting Reference
 
-이 레퍼런스는 Google Master가 사용자의 요청에 맞춰 최적의 구글 AI 도구로 라우팅하고, 각 도구에 적합한 프롬프트 및 입출력 양식을 제공하기 위한 상세 기술 명세서입니다.
+이 레퍼런스는 Google Master가 사용자의 요청에 맞춰 최적의 구글 AI 도구로 라우팅하고, 각 도구에 적합한 공식 웹 콘솔 URL, MCP 지원 여부, 프롬프트 규격을 제공하기 위한 상세 기술 명세서입니다.
+
+---
+
+## ⚡ 구글 16대 도구 공식 URL & MCP 연동 매트릭스
+
+구글의 전문 도구들이 각기 다른 콘솔로 파편화되어 있으므로, 공식 접속 URL과 에이전트 연동 방식을 명확히 구분합니다:
+
+| 도구명 | 카테고리 | 공식 콘솔 URL | MCP / API 상태 | Antigravity 연동 방식 |
+| :--- | :--- | :--- | :--- | :--- |
+| **Google Stitch** | UI 디자인 | [stitch.withgoogle.com](https://stitch.withgoogle.com) | ✅ 공식 MCP (`@_davideast/stitch-mcp`) | `gcloud` 1회 인증 시 에이전트가 화면 코드 직접 추출 |
+| **Firebase Studio** | 클라우드 IDE | [firebase.studio](https://firebase.studio) | 🌐 웹 기반 IDE | 에이전트가 템플릿 및 환경 프롬프트 제공 |
+| **Code Canvas** | 인터랙티브 UI | [gemini.google.com](https://gemini.google.com) | 💬 대화형 캔버스 | 위젯 단위 즉시 렌더링 프롬프트 제공 |
+| **Antigravity / Jules** | 자율 에이전트 | [jules.google](https://jules.google) | 🤖 네이티브 에이전트 | 로컬 파일/빌드/테스트 100% 직접 실행 |
+| **Google AI Studio** | LLM 개발자 콘솔 | [aistudio.google.com](https://aistudio.google.com) | 🔑 공식 SDK (`@google/genai`) | `GEMINI_API_KEY`로 100% 직접 통신 및 연동 |
+| **Vertex AI** | 엔터프라이즈 AI | [console.cloud.google.com](https://console.cloud.google.com/vertex-ai) | 🔑 GCP Service Account | 서비스 계정 키 바인딩 시 백엔드 100% 자동 호출 |
+| **Gemma** | 온디바이스 모델 | [ai.google.dev/gemma](https://ai.google.dev/gemma) | 💻 로컬 CLI / Ollama | 로컬 Ollama 엔드포인트로 100% 직접 추론 |
+| **NotebookLM** | 도메인 RAG/팟캐스트 | [notebooklm.google.com](https://notebooklm.google.com) | ⚠️ 공식 MCP/API 없음 (비공식만 존재) | 에이전트가 마크다운 소스 및 질의 패키징 제공 |
+| **Deep Research** | 심층 웹 탐색 | [gemini.google.com](https://gemini.google.com) | 🔍 브라우저 기능 | 에이전트가 `search_web` 직접 실행 또는 쿼리 제공 |
+| **Guided Learning** | 소크라테스식 학습 | [gemini.google.com](https://gemini.google.com) | 💬 대화형 튜터 | 단계별 학습 커리큘럼 프롬프트 제공 |
+| **Google Vids** | 업무 영상/발표 | [vids.google.com](https://vids.google.com) | 🎬 Workspace 앱 | 스토리보드 및 슬라이드 스크립트 패키징 제공 |
+| **Google Veo** | 1080p 시네마틱 영상 | [aitestkitchen.withgoogle.com](https://aitestkitchen.withgoogle.com) | 🎥 Vertex AI API (유료) / 공식 MCP 없음 | 웹 콘솔용 샷 리스트 제공 (유료 키 보유 시 코드로 자동 생성) |
+| **AI Test Kitchen** | 이미지/음악 생성 | [aitestkitchen.withgoogle.com](https://aitestkitchen.withgoogle.com) | 🎨 실험적 웹 콘솔 | ImageFX/MusicFX 전용 프롬프트 패키징 제공 |
+| **Workspace Gemini** | 오피스 자동화 | [workspace.google.com](https://workspace.google.com) | 📑 Workspace Add-on / API | 시트 수식/문서 생성용 Apps Script 제공 |
+| **Temporary Chat** | 프라이빗 세션 | [gemini.google.com](https://gemini.google.com) | 🔒 브라우저 1회성 세션 | 휘발성 보안 작업용 가이드 제공 |
 
 ---
 
 ## 1. 프론트엔드 & UI 디자인
 
 ### 1.1 Google Stitch
+* **공식 콘솔**: [stitch.withgoogle.com](https://stitch.withgoogle.com)
+* **MCP 서버**: `stitch.googleapis.com/mcp` (또는 `npx @_davideast/stitch-mcp`)
 * **개요**: 텍스트 프롬프트 또는 핸드 드로잉 스케치를 기반으로 반응형 웹/앱 UI 디자인과 프론트엔드 코드(HTML/CSS/JS)를 즉시 생성하는 도구.
 * **최적 사용 시점**: 프로젝트 착수 직후, 와이어프레임 제작 단계, 대시보드/랜딩페이지 초기 비주얼 레이아웃 구축 시.
 * **프롬프트 템플릿 구조**:
